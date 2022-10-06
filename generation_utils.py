@@ -112,10 +112,7 @@ class KCenters:
                     new_centers += w * self.optim(self.centers, matrix, topk, strategy, temperature=temperature)
                 new_centers = new_centers/length
                 
-                #if torch.mean(torch.abs(self.centers - new_centers)) < tol:
-                #    self.centers = new_centers
-                #    self.score = new_score
-                #    break
+
                 self.centers = new_centers
                         
                         
@@ -191,13 +188,7 @@ class KCenters:
                 dis = tmp_dis
             else:
                 dis = torch.cat([dis, tmp_dis], dim=0)
-        #i, 1, m
-        #matrix1 = matrix1.unsqueeze(dim=1)
-        #1, j, m
-        #matrix2 = matrix2.unsqueeze(dim=0)
 
-        #dis = (matrix1 - matrix2) ** 2.0
-        #dis = torch.sum(dis, dim=-1).squeeze()
         
         return dis
 

@@ -137,53 +137,12 @@ with open('data/AGnews/AG-data.txt', 'r') as f:
         label = int(line[0])
         ag_dataset[label]['sent'].append(line[1].strip())
 
-#with open('data/SST/pos.txt', 'r') as f:
-#    for line in f.readlines():
-#        pos_dataset['sent'].append(line.strip())
-#        pos_dataset['type'].append(1)
-
-#with open('data/SST/neg.txt', 'r') as f:
-#    for line in f.readlines():
-#        neg_dataset['sent'].append(line.strip())
-#        neg_dataset['type'].append(0)
-
-#with open('data/toxic/s_notoxic.json', 'r') as f:
-#    for line in json.loads(f.read()):
-#        not_dataset['sent'].append(line.strip())
-#        not_dataset['type'].append(3)
-
-#with open('data/toxic/s_toxic.json', 'r') as f:
-#    for line in json.loads(f.read()):
-#        tox_dataset['sent'].append(line.strip())
-#        tox_dataset['type'].append(2)
 
 imdb_dataset = [Dataset.from_dict(i) for i in imdb_dataset]
 ag_dataset = [Dataset.from_dict(i) for i in ag_dataset]
 toxic_dataset = [Dataset.from_dict(i) for i in toxic_dataset]
 
 
-#if args.pre_tokens is not None and args.pre_tokens > 1:
-#    pos_train_dataset = pos_train_dataset.map(lambda e: decoder_tokenizer(e['sent'], max_length=args.pre_tokens, padding='max_length', truncation=True), batched=True)
-#    pos_train_dataset = pos_train_dataset.rename_columns({'input_ids':'decoder_input_ids', 'attention_mask':'decoder_attention_mask'})
-#    pos_train_dataset = pos_train_dataset.map(lambda e: encoder_tokenizer(e['sent'], padding=True, truncation=True), batched=True, batch_size=args.batch_size)
-#    pos_train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'token_type_ids', 'decoder_input_ids', 'decoder_attention_mask', 'type'])
-
-#    neg_train_dataset = neg_train_dataset.map(lambda e: decoder_tokenizer(e['sent'], max_length=args.pre_tokens, padding='max_length', truncation=True), batched=True)
-#    neg_train_dataset = neg_train_dataset.rename_columns({'input_ids':'decoder_input_ids', 'attention_mask':'decoder_attention_mask'})
-#    neg_train_dataset = neg_train_dataset.map(lambda e: encoder_tokenizer(e['sent'], padding=True, truncation=True), batched=True, batch_size=args.batch_size)
-#    neg_train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'token_type_ids', 'decoder_input_ids', 'decoder_attention_mask', 'type'])
-
-#    not_train_dataset = not_train_dataset.map(lambda e: decoder_tokenizer(e['sent'], max_length=args.pre_tokens, padding='max_length', truncation=True), batched=True)
-#    not_train_dataset = not_train_dataset.rename_columns({'input_ids':'decoder_input_ids', 'attention_mask':'decoder_attention_mask'})
-#    not_train_dataset = not_train_dataset.map(lambda e: encoder_tokenizer(e['sent'], padding=True, truncation=True), batched=True, batch_size=args.batch_size)
-#    not_train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'token_type_ids', 'decoder_input_ids', 'decoder_attention_mask', 'type'])
-
-#    tox_train_dataset = tox_train_dataset.map(lambda e: decoder_tokenizer(e['sent'], max_length=args.pre_tokens, padding='max_length', truncation=True), batched=True)
-#    tox_train_dataset = tox_train_dataset.rename_columns({'input_ids':'decoder_input_ids', 'attention_mask':'decoder_attention_mask'})
-#    tox_train_dataset = tox_train_dataset.map(lambda e: encoder_tokenizer(e['sent'], padding=True, truncation=True), batched=True, batch_size=args.batch_size)
-#    tox_train_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'token_type_ids', 'decoder_input_ids', 'decoder_attention_mask', 'type'])
-#else:
-#    raise Exception('args.pre_tokens not in required ranges')
 
 imdb_dataloader = []
 for dataset in imdb_dataset:
@@ -205,8 +164,6 @@ for dataset in toxic_dataset:
 
 
 
-#pos_latents = None
-#sports_latents = None
 not_latents = None
 sentiment_latents = {0:None, 1:None}
 topic_latents = {0:None, 1:None, 2:None, 3:None}
@@ -248,11 +205,6 @@ for cnt in tqdm(iter(toxic_dataloader[1])):
         not_latents = torch.cat((not_latents, latent.squeeze().detach()), dim=0)
 
 
-
-
-#pos_latents = pos_latents.to('cpu').numpy()
-#not_latents = not_latents.to('cpu').numpy()
-#neg_latents = neg_latents.to('cpu').numpy()
 
 kcmodel = KCenters(num_centers=args.num_centers, latent_size=args.latent_size, num_output_centers=args.num_output_centers, device='cuda')
 
@@ -301,28 +253,6 @@ for i in range(2):
             assert len(labels) == len(output_text)
 
 
-#for cnt in tqdm(iter(pos_dataloader)):
-#    encoder_input_ids = cnt['input_ids']
-#    encoder_attention_mask = cnt['attention_mask']
-#    encoder_token_type_ids = cnt['token_type_ids']
-#    decoder_input_ids = cnt['decoder_input_ids']
-#    decoder_attention_mask = cnt['decoder_attention_mask']
-
-    
-#    output = model.generate(
-#        input_latent=random.choice(centers),
-#        input_ids=decoder_input_ids,
-#        attention_mask=decoder_attention_mask,
-#        variation=args.variation,
-#        max_len=50,
-#        rp=1.2
-#        )
-
-#    raw.extend(encoder_tokenizer.batch_decode(encoder_input_ids.cpu(), skip_special_tokens=True))
-#    gen.extend([i.strip().split('\n\n')[0].strip() for i in decoder_tokenizer.batch_decode(output.cpu(), skip_special_tokens=True)])
-#    gen.extend(decoder_tokenizer.batch_decode(output.cpu(), skip_special_tokens=True))
-#    label.extend(cnt['type'].tolist())
-#    assert len(label) == len(gen)
 
 with open(args.output_dir, 'w') as f:
     for i in tqdm(range(len(output_text))):
