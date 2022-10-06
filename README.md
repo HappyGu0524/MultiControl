@@ -3,7 +3,7 @@ A Distributional Lens for Multi-Aspect Controllable Text Generation
 
 
 ## File structure
-> 
+```
 ├── classify
 │   ├── eval.py
 │   ├── indep_eval.sh
@@ -30,6 +30,7 @@ A Distributional Lens for Multi-Aspect Controllable Text Generation
 │       └── predict_final.txt
 ├── train_multi.py
 └── train_multi.sh
+```
 
 ## Train
 ```
