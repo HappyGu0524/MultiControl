@@ -5,8 +5,8 @@ A Distributional Lens for Multi-Aspect Controllable Text Generation
 ## File structure
 ```
 ├── classify
-│   ├── eval.py                       # Evaluation metric
-│   ├── indep_eval.sh                 # Evaluation shell
+│   ├── eval.py                       \# Evaluation metric
+│   ├── indep_eval.sh                 \# Evaluation shell
 │   ├── logs
 │   │   └── AE_final.txt              # Final Score
 │   └── model                         # Evaluator checkpoints
