@@ -4,7 +4,9 @@ A Distributional Lens for Multi-Aspect Controllable Text Generation
 
 
 ## Train
-
+```
+sh train_multi.sh
+```
 ## Generate & Test
 ```
 sh generate_multi.sh
