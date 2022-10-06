@@ -13,7 +13,7 @@ A Distributional Lens for Multi-Aspect Controllable Text Generation
 │       ├── AGnews-checkpoint-6000    # Topic Evaluation
 │       │   ├── config.json
 │       │   └── pytorch_model.bin
-│       ├── Toxic-checkpoint-3000     # Toxic Evaluation. 
+│       ├── Toxic-checkpoint-3000     # Toxic Evaluation
                                       # Noting that this is only for validation. 
                                       # We use Perspective API for final toxic evaluation
 │       │   ├── config.json           
