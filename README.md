@@ -54,6 +54,6 @@ sh generate_multi.sh
 ```
 
 ## Model & Data
-We are still uploading, please wait several weeks.
+
 Checkpoint available at:
 https://drive.google.com/drive/folders/14XHSG4IAGlAL9t-SYoTUKnAs5ARqHd5f?usp=sharing
