@@ -1,5 +1,5 @@
 # MultiControl
-A Distributional Lens for Multi-Aspect Controllable Text Generation
+[A Distributional Lens for Multi-Aspect Controllable Text Generation](https://arxiv.org/pdf/2210.02889.pdf)
 
 
 ## File structure
