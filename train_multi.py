@@ -134,7 +134,8 @@ if args.classifier_head_type == 'multiple':
             tmp_dataset = tmp_dataset.rename_columns({'input_ids':'adv_input_ids', 'attention_mask':'adv_attention_mask', 'token_type_ids':'adv_token_type_ids'})
         if 'latent_classify_loss' in loss_list:
             tmp_dataset = tmp_dataset.map(lambda e: {'pos_label': e['type'], 'neg_labels': [1 - e['type']]})
-            tmp_dataset.set_format(type='torch', columns=columns)
+        
+        tmp_dataset.set_format(type='torch', columns=columns)
 
         tmp_dataloader = torch.utils.data.DataLoader(tmp_dataset, batch_size=args.batch_size)
         for cnt in iter(tmp_dataloader):
