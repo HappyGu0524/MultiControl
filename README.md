@@ -1,5 +1,7 @@
 # MultiControl
-[A Distributional Lens for Multi-Aspect Controllable Text Generation](https://arxiv.org/pdf/2210.02889.pdf)
+[A Distributional Lens for Multi-Aspect Controllable Text Generation](https://arxiv.org/pdf/2210.02889.pdf) *EMNLP 2022 Oral*
+
+[Controllable Text Generation via Probability Density Estimation in the Latent Space](https://arxiv.org/pdf/2212.08307.pdf) *Still in Progress*
 
 
 ## File structure
