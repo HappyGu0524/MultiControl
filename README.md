@@ -31,13 +31,11 @@
 │   │   └── checkpoint-30000          # Model Checkpoint
     │                                 # We preserve the parameters of Encoder, Fixed Decoder, and Mapping Layer all together for simplicity.
     │                                 # You can only keep the searched Intersection Prefixes and drop out other parts.
-│   │       ├── config.json
 │   │       └── pytorch_model.bin
 │   └── priorcontrol                  # Model Folder for PriorControl
 │       └── All_notricks_checkpoint-300000
                                       # We preserve the parameters of Encoder, Fixed Decoder, Mapping Layer, and Normalizing Flows all together for simplicity.
                                       # You need to keep the Prior Heads and Mapping Layer before drop out other parts.
-│           ├── config.json
 │           └── pytorch_model.bin
 ├── multicontrol                      # Code and Script Folder for MultiControl
 │   ├── generate_config_final.json    # Config for Multi-Aspect Controllable Generation
