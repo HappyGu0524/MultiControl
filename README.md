@@ -93,9 +93,12 @@ sh train_prior_only.sh
 ### Generate & Test
 ```
 #Single-Attribute Control
+
 sh generate_prior.sh
 sh single_eval.sh
+
 #Multi-Attribute Control
+
 sh generate_combine.sh
 sh combine_eval.sh
 ```

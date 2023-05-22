@@ -10,7 +10,4 @@ output_loc=./logs/generate_combination.txt
 #output_loc=./logs/generate_combination_optimcons.txt
 fi
 
-
-
 sh ../classify/indep_eval.sh $file_loc $output_loc
-
