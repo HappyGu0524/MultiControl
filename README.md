@@ -90,12 +90,12 @@ sh train_prior_only.sh
 ```
 ### Generate & Test
 ```
-#Single-Attribute Control
+### Single-Attribute Control ###
 
 sh generate_prior.sh
 sh single_eval.sh
 
-#Multi-Attribute Control
+### Multi-Attribute Control ###
 
 sh generate_combine.sh
 sh combine_eval.sh
@@ -105,3 +105,34 @@ sh combine_eval.sh
 
 Checkpoint available at:
 https://drive.google.com/drive/folders/14XHSG4IAGlAL9t-SYoTUKnAs5ARqHd5f?usp=sharing
+
+
+## Cite Us
+### MultiControl
+```
+@inproceedings{gu-etal-2022-distributional,
+    title = "A Distributional Lens for Multi-Aspect Controllable Text Generation",
+    author = "Gu, Yuxuan  and
+      Feng, Xiaocheng  and
+      Ma, Sicheng  and
+      Zhang, Lingyuan  and
+      Gong, Heng  and
+      Qin, Bing",
+    booktitle = "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.emnlp-main.67",
+    pages = "1023--1043",
+}
+```
+### PriorControl
+```
+@article{gu2022controllable,
+  title={Controllable Text Generation via Probability Density Estimation in the Latent Space},
+  author={Gu, Yuxuan and Feng, Xiaocheng and Ma, Sicheng and Zhang, Lingyuan and Gong, Heng and Qin, Bing},
+  journal={arXiv preprint arXiv:2212.08307},
+  year={2022}
+}
+```
