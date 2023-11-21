@@ -1,7 +1,7 @@
 # MultiControl & PriorControl
 **MultiControl**: [A Distributional Lens for Multi-Aspect Controllable Text Generation](https://arxiv.org/pdf/2210.02889.pdf) *EMNLP 2022 Oral*
 
-**PriotControl**: [Controllable Text Generation via Probability Density Estimation in the Latent Space](https://arxiv.org/pdf/2212.08307.pdf) *ACL 2023*
+**PriorControl**: [Controllable Text Generation via Probability Density Estimation in the Latent Space](https://arxiv.org/pdf/2212.08307.pdf) *ACL 2023*
 
 
 ## File structure
